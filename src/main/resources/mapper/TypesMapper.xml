@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itqf.jtjxc.mapper.TypesMapper">
+
+   <!-- typesmapper接口的 insertType -->
+    <insert id="insertType">
+        insert into types (t_name,t_des,t_note,t_weight) value
+        (#{tName},#{tDes},#{tNote},#{tWeight});
+    </insert>
+
+    <select id="queryAll" resultType="types">
+         select * from types;
+    </select>
+
+</mapper>

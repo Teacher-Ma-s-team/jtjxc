@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itqf.jtjxc.mapper.UserMapper">
+    <!--
+        select
+        update
+        delete
+        insert 不同的mapper方法类型
+        id属性 对应的 mapper的方法名称
+
+        #{uAccount}  获取传入的 uAccount属性值
+    -->
+    <select id="queryUser" resultType="user">
+        select * from users where u_account = #{uAccount}
+           and u_password = #{uPassword}
+    </select>
+
+</mapper>
