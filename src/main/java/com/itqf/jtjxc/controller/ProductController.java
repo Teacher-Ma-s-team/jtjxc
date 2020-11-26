@@ -38,5 +38,16 @@ public class ProductController {
         return productService.delete(pid);
     }
 
+    @GetMapping("queryOne")
+    public Result queryOneByPid(Integer pid){
+        return productService.queryOneByPid(pid);
+    }
 
+    @PostMapping("saveEdit")
+    public Result saveEdit(Product product){
+        System.out.println(product);
+        return productService.update(product);
+    }
 }
+
+

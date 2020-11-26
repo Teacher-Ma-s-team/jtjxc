@@ -63,5 +63,15 @@ ON t.u_id = u.u_id;
     <delete id="delete" parameterType="integer">
         delete from product where p_id=#{pid}
     </delete>
+    <select id="queryOne" parameterType="integer" resultType="com.itqf.jtjxc.bean.Product">
+        select * from product where p_id=#{pid}
+    </select>
+    <update id="update" parameterType="Product">
+        update product
+        set p_name=#{pName},p_price=#{pPrice}
+        ,t_id=#{tId},p_des=#{pDes}
+        ,p_note=#{pNote}
+        where p_id=#{pId}
+    </update>
 
 </mapper>

@@ -18,4 +18,8 @@ public interface ProductMapper {
     int insert(Product product);
 
     int delete(Integer pid);
+
+    Product queryOne(Integer pid);
+
+    int update(Product product);
 }

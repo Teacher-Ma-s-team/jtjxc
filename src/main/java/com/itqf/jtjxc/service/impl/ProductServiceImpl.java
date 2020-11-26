@@ -58,4 +58,24 @@ public class ProductServiceImpl implements ProductService {
 
         return Result.FAIL();
     }
+
+    @Override
+    public Result queryOneByPid(Integer pid) {
+        Product product = productMapper.queryOne(pid);
+        if(product!=null){
+            return Result.OK(product);
+        }
+        return Result.FAIL();
+    }
+
+    @Override
+    public Result update(Product product) {
+
+        int i = productMapper.update(product);
+        if(i>0){
+            List<Product> products = productMapper.query();
+            return Result.OK(products);
+        }
+        return Result.FAIL();
+    }
 }

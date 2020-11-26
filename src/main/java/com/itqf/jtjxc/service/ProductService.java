@@ -29,4 +29,18 @@ public interface ProductService {
      * @return
      */
     Result delete(Integer pid);
+
+    /**
+     * 更具商品id查询商品实体
+     * @param pid
+     * @return
+     */
+    Result queryOneByPid(Integer pid);
+
+    /**
+     * 更新商品
+     * @param product
+     * @return
+     */
+    Result update(Product product);
 }
