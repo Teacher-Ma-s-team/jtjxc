@@ -34,4 +34,28 @@ public class ProductServiceImpl implements ProductService {
 
         return Result.FAIL();
     }
+
+    @Override
+    public Result insert(Product product) {
+        // 设置规格id默认为1
+        product.setsId(1);
+
+        int i = productMapper.insert(product);
+        if(i > 0){
+            List<Product> products = productMapper.query();
+            return Result.OK(products);
+        }
+        return Result.FAIL();
+    }
+
+    @Override
+    public Result delete(Integer pid) {
+        int i = productMapper.delete(pid);
+        if(i > 0){
+            List<Product> products = productMapper.query();
+            return Result.OK(products);
+        }
+
+        return Result.FAIL();
+    }
 }

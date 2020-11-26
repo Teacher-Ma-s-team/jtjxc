@@ -117,4 +117,19 @@ public class Product {
     public void setpNote(String pNote) {
         this.pNote = pNote;
     }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "pId=" + pId +
+                ", tId=" + tId +
+                ", sId=" + sId +
+                ", size=" + size +
+                ", types=" + types +
+                ", pName='" + pName + '\'' +
+                ", pPrice='" + pPrice + '\'' +
+                ", pDes='" + pDes + '\'' +
+                ", pNote='" + pNote + '\'' +
+                '}';
+    }
 }

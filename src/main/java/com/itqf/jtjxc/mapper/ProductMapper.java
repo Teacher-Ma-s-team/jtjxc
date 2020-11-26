@@ -14,4 +14,8 @@ import java.util.List;
 public interface ProductMapper {
 
     List<Product> query();
+
+    int insert(Product product);
+
+    int delete(Integer pid);
 }

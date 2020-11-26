@@ -56,5 +56,12 @@ JOIN size s ON s.s_id = p.s_id JOIN users u
 ON t.u_id = u.u_id;
 
    </select>
+    <insert id="insert" parameterType="Product">
+        insert into product
+        values (null,#{tId},#{pName},#{pPrice},#{pDes},#{pNote},#{sId})
+    </insert>
+    <delete id="delete" parameterType="integer">
+        delete from product where p_id=#{pid}
+    </delete>
 
 </mapper>

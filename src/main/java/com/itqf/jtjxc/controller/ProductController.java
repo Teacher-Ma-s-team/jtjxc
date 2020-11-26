@@ -1,11 +1,10 @@
 package com.itqf.jtjxc.controller;
 
+import com.itqf.jtjxc.bean.Product;
 import com.itqf.jtjxc.bean.Result;
 import com.itqf.jtjxc.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * projectName: jtjxc
@@ -26,4 +25,18 @@ public class ProductController {
          Result result =  productService.show();
          return  result;
     }
+
+    @PostMapping("insert")
+    public Result insert(Product product){
+        System.out.println(product);
+        return productService.insert(product);
+    }
+
+    @GetMapping("del")
+    public Result delete(Integer pid){
+
+        return productService.delete(pid);
+    }
+
+
 }
