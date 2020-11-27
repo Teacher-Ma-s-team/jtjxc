@@ -41,5 +41,8 @@
         set u_account=#{uAccount},u_name=#{uName},u_password=#{uPassword},u_sex=#{usex},u_js=#{ujs}
         where u_id=#{uId};
     </update>
+    <select id="queryById" resultType="com.itqf.jtjxc.bean.User">
+        select * from users where u_id=#{uId}
+    </select>
 
 </mapper>

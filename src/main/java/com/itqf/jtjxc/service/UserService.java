@@ -25,4 +25,6 @@ public interface UserService {
     Result inuser(User user);
 
     Result upuser(User user);
+
+    Result updatePassword(Integer uId,String oldPassword,String newPassword);
 }

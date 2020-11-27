@@ -1,7 +1,6 @@
 package com.itqf.jtjxc.service.impl;
 
 import com.itqf.jtjxc.bean.Result;
-import com.itqf.jtjxc.bean.Types;
 import com.itqf.jtjxc.bean.User;
 import com.itqf.jtjxc.mapper.UserMapper;
 import com.itqf.jtjxc.service.UserService;
@@ -89,6 +88,27 @@ public class UserServiceImpl implements UserService {
             List<User> userList=userMapper.queryAll();
             return Result.OK(userList);
         }
+        return Result.FAIL();
+    }
+
+    @Override
+    public Result updatePassword(Integer uId, String oldPassword, String newPassword) {
+        User user = userMapper.queryById(uId);
+        if(user!=null){
+
+            String str = oldPassword + Constants.SALT;
+            String oldPW = DigestUtils.md5DigestAsHex(str.getBytes());
+            if(user.getuPassword().equals(oldPW)){
+                String newStr = newPassword + Constants.SALT;
+                String newPW = DigestUtils.md5DigestAsHex(newStr.getBytes());
+                user.setuPassword(newPW);
+                int i = userMapper.updateUser(user);
+                if(i>0){
+                    return Result.OK();
+                }
+            }
+        }
+
         return Result.FAIL();
     }
 }

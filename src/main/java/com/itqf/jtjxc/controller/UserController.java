@@ -75,4 +75,10 @@ public class UserController {
         Result result=userService.upuser(user);
         return result;
     }
+
+    @GetMapping("updatePassword")
+    public Result updatePassword(Integer uId,String oldPassword,String newPassword){
+
+        return userService.updatePassword(uId, oldPassword, newPassword);
+    }
 }
