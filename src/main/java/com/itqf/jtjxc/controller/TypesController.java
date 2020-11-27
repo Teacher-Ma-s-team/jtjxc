@@ -4,10 +4,7 @@ import com.itqf.jtjxc.bean.Result;
 import com.itqf.jtjxc.bean.Types;
 import com.itqf.jtjxc.service.TypesService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * projectName: jtjxc
@@ -27,6 +24,22 @@ public class TypesController {
     public Result save(Types types){
 
         Result result = typesService.save(types);
+
+        return result;
+    }
+
+    @PostMapping("uptype")
+    public Result uptype(Types types){
+        Result result = typesService.uptype(types);
+
+        return result;
+    }
+
+    @GetMapping("detype")
+    public Result detype(Integer tId){
+        Types types = new Types();
+        types.settId(tId);
+        Result result = typesService.detype(types);
 
         return result;
     }

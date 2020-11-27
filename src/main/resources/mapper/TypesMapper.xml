@@ -10,6 +10,16 @@
         (#{tName},#{tDes},#{tNote},#{tWeight});
     </insert>
 
+    <update id="updateType">
+        update types
+        set t_name=#{tName},t_des=#{tDes},t_note=#{tNote},t_Weight=#{tWeight}
+        where t_name=#{tName};
+    </update>
+
+    <delete id="deleteType">
+        delete from Types where t_id=#{tId};
+    </delete>
+
     <select id="queryAll" resultType="types">
          select * from types;
     </select>

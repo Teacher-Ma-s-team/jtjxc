@@ -2,6 +2,7 @@ package com.itqf.jtjxc.mapper;
 
 import com.itqf.jtjxc.bean.Types;
 
+import java.lang.reflect.Type;
 import java.util.List;
 
 /**
@@ -22,6 +23,20 @@ public interface TypesMapper {
      * @return
      */
     int insertType(Types types);
+
+    /**
+     * 修改type的数据库操作
+     * @param types
+     * @return
+     */
+    int updateType(Types types);
+
+    /**
+     * 删除type的数据库操作
+     * @param types
+     * @return
+     */
+    int deleteType(Types types);
 
     /**
      * 查询所有分类数据
