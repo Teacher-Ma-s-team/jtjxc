@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itqf.jtjxc.mapper.InHourseMapper">
+    <insert id="inserthourse">
+INSERT INTO inhouse (t_id,p_name,inh_number,intime)VALUES(#{tId},#{pName},#{inhNumber},#{intime})
+    </insert>
+    <update id="updatehourse">
+        UPDATE warehouse warehouse SET tnumber=tnumber+#{inhNumber} WHERE p_name=#{pName}
+    </update>
+    <select id="queryAll" resultType="inHourse" >
+
+SELECT * FROM inhouse
+    </select>
+    <select id="querybyid" resultType="inHourse">
+SELECT * FROM inhouse where inh_id=#{inhId}
+    </select>
+    <update id="changed">
+        update inhouse set p_name=#{pName},inh_number=#{inhNumber},intime=#{intime} where inh_id=#{inhId}
+    </update>
+    <delete id="delhis">
+        delete  from inhouse where inh_id=#{inhId}
+    </delete>
+
+</mapper>
