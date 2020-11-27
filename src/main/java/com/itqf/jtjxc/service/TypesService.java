@@ -19,5 +19,9 @@ public interface TypesService {
      */
     Result save(Types types);
 
+    Result  uptype(Types types);
+
+    Result detype(Types types);
+
     Result show();
 }

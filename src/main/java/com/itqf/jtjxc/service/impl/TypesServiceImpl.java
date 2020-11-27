@@ -7,6 +7,7 @@ import com.itqf.jtjxc.service.TypesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.print.DocFlavor;
 import java.util.List;
 
 /**
@@ -34,6 +35,35 @@ public class TypesServiceImpl implements TypesService {
             List<Types> typeList = typesMapper.queryAll();
 
             return Result.OK(typeList);
+        }
+        return Result.FAIL();
+    }
+
+    @Override
+    public Result uptype(Types types){
+
+        //1.types更新数据库信息
+        int rows = typesMapper.updateType(types);
+        //2.判断是否更新成功
+        if(rows > 0){
+            //3.更新成功  查询所有数据并返回显示
+            List<Types> typeList = typesMapper.queryAll();
+
+            return Result.OK(typeList);
+        }
+        return Result.FAIL();
+    }
+
+    @Override
+    public Result detype(Types types){
+        //1.types删除数据库信息
+        int rows = typesMapper.deleteType(types);
+        //2.判断是否删除成功
+        if(rows > 0){
+            //3.删除成功 查询所有数据并返回显示
+            List<Types> typesList = typesMapper.queryAll();
+
+            return Result.OK(typesList);
         }
         return Result.FAIL();
     }

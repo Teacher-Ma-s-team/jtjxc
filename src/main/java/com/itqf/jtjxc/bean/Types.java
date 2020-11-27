@@ -12,6 +12,20 @@ public class Types {
     private int tId;
     private int uId;
     private User user;
+
+    @Override
+    public String toString() {
+        return "Types{" +
+                "tId=" + tId +
+                ", uId=" + uId +
+                ", user=" + user +
+                ", tName='" + tName + '\'' +
+                ", tDes='" + tDes + '\'' +
+                ", tNote='" + tNote + '\'' +
+                ", tWeight=" + tWeight +
+                '}';
+    }
+
     private String tName;
     private String tDes;
     private String tNote;
@@ -72,4 +86,6 @@ public class Types {
     public void settWeight(int tWeight) {
         this.tWeight = tWeight;
     }
+
+
 }
