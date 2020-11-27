@@ -4,6 +4,7 @@ import com.itqf.jtjxc.bean.Result;
 import com.itqf.jtjxc.bean.User;
 import com.itqf.jtjxc.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -47,5 +48,31 @@ public class UserController {
         //3.响应返回数据
         return result;
     }
+    @GetMapping("show")
+    public Result login(){
 
+        Result result = userService.show();
+
+        return result;
+    }
+    @GetMapping("deuser")
+    public Result deuser(Integer uId){
+        System.out.println(uId);
+        User user=new User();
+        user.setuId(uId);
+        Result result=userService.deuser(user);
+        return result;
+    }
+    @PostMapping("inuser")
+    public Result inuser(User user){
+        System.out.println(user);
+        Result result=userService.inuser(user);
+        return result;
+    }
+    @PostMapping("upuser")
+    public  Result upuser(User user){
+        System.out.println(user);
+        Result result=userService.upuser(user);
+        return result;
+    }
 }

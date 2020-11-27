@@ -13,7 +13,8 @@ public class User {
     private String uName;
     private String uAccount;
     private String uPassword;
-
+    private  String usex;
+    private String ujs;
     public Integer getuId() {
         return uId;
     }
@@ -44,5 +45,33 @@ public class User {
 
     public void setuPassword(String uPassword) {
         this.uPassword = uPassword;
+    }
+
+    public String getUsex() {
+        return usex;
+    }
+
+    public void setUsex(String usex) {
+        this.usex = usex;
+    }
+
+    public String getUjs() {
+        return ujs;
+    }
+
+    public void setUjs(String ujs) {
+        this.ujs = ujs;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "uId=" + uId +
+                ", uName='" + uName + '\'' +
+                ", uAccount='" + uAccount + '\'' +
+                ", uPassword='" + uPassword + '\'' +
+                ", usex='" + usex + '\'' +
+                ", ujs='" + ujs + '\'' +
+                '}';
     }
 }

@@ -12,9 +12,34 @@
 
         #{uAccount}  获取传入的 uAccount属性值
     -->
+
+
     <select id="queryUser" resultType="user">
-        select * from users where u_account = #{uAccount}
-           and u_password = #{uPassword}
+        select*
+        from users
+        where u_account = #{uAccount}
+           and u_password = #{uPassword};
     </select>
+
+    <select id="queryAll" resultType="user">
+        select *
+        from users;
+    </select>
+
+    <delete id="deleteUser">
+        delete from users
+        where u_id=#{uId};
+    </delete>
+
+    <insert id="insertUser">
+        insert into users(u_id,u_account,u_name,u_password,u_sex,u_js) values
+        (null,#{uAccount},#{uName},#{uPassword},#{usex},#{ujs});
+    </insert>
+
+    <update id="updateUser">
+        update users
+        set u_account=#{uAccount},u_name=#{uName},u_password=#{uPassword},u_sex=#{usex},u_js=#{ujs}
+        where u_id=#{uId};
+    </update>
 
 </mapper>

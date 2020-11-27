@@ -1,6 +1,7 @@
 package com.itqf.jtjxc.service.impl;
 
 import com.itqf.jtjxc.bean.Result;
+import com.itqf.jtjxc.bean.Types;
 import com.itqf.jtjxc.bean.User;
 import com.itqf.jtjxc.mapper.UserMapper;
 import com.itqf.jtjxc.service.UserService;
@@ -39,6 +40,54 @@ public class UserServiceImpl implements UserService {
         if (users != null && users.size() > 0) {
             //查询成功
             return Result.OK(users.get(0));
+        }
+        return Result.FAIL();
+    }
+    @Override
+    public Result show() {//查询
+
+        List<User> usersList = userMapper.queryAll();
+
+        if (usersList != null && usersList.size() > 0) {
+
+            return Result.OK(usersList);
+        }
+
+        return Result.FAIL();
+    }
+    @Override
+    public Result deuser(User user){
+        //user删除数据库信息
+        int rows=userMapper.deleteUser(user);
+        //判断是否删除成功
+        if(rows>0){
+            List<User> userList=userMapper.queryAll();
+            return Result.OK(userList);
+        }
+        return Result.FAIL();
+    }
+    @Override
+    public Result inuser(User user){
+        //插入
+        int rows =userMapper.insertUser(user);
+        //判断是否插入成功
+        if(rows>0){
+            //成功查询所有员工数据并返回显示
+            List<User> userList=userMapper.queryAll();
+            return Result.OK(userList);
+        }
+        return Result.FAIL();
+    }
+    @Override
+    public Result upuser(User user){
+
+        //1.types更新数据库信息
+        int rows = userMapper.updateUser(user);
+        //2.判断是否更新成功
+        if(rows > 0){
+            //3.更新成功  查询所有数据并返回显示
+            List<User> userList=userMapper.queryAll();
+            return Result.OK(userList);
         }
         return Result.FAIL();
     }

@@ -1,5 +1,6 @@
 package com.itqf.jtjxc.mapper;
 
+import com.itqf.jtjxc.bean.Types;
 import com.itqf.jtjxc.bean.User;
 
 import java.util.List;
@@ -18,6 +19,11 @@ public interface UserMapper {
      * @param user
      * @return
      */
+    int insertUser(User user);//插入
+    int updateUser(User user);
+    int deleteUser(User user);//删除user数据库
     List<User> queryUser(User user);
+    List<User> queryAll();
+
 
 }
