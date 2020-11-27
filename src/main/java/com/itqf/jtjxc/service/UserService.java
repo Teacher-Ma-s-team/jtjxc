@@ -17,4 +17,12 @@ public interface UserService {
      * @return result结果判断实体
      */
     Result login(User user);
+
+    Result show();
+
+    Result deuser(User user);
+
+    Result inuser(User user);
+
+    Result upuser(User user);
 }
