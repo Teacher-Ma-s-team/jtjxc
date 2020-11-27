@@ -22,4 +22,6 @@ public interface ProductMapper {
     Product queryOne(Integer pid);
 
     int update(Product product);
+
+    List<Product> queryByTId(Integer tId);
 }

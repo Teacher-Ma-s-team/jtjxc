@@ -26,4 +26,25 @@ public class InfoServiceImpl implements InfoService {
 
         return Result.OK(infos);
     }
+
+    @Override
+    public Result insert(Info info) {
+        int i = infoMapper.insert(info);
+        if(i>0){
+            List<Info> infos = infoMapper.queryAll();
+            return Result.OK(infos);
+        }
+        return Result.FAIL();
+    }
+
+    @Override
+    public Result delete(Integer iId) {
+
+        int i = infoMapper.delete(iId);
+        if(i>0){
+            List<Info> infos = infoMapper.queryAll();
+            return Result.OK(infos);
+        }
+        return Result.FAIL();
+    }
 }

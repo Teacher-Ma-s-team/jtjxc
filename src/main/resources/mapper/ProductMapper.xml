@@ -73,5 +73,8 @@ ON t.u_id = u.u_id;
         ,p_note=#{pNote}
         where p_id=#{pId}
     </update>
+    <select id="queryByTId" resultType="com.itqf.jtjxc.bean.Product">
+        select * from product where t_id=#{tId}
+    </select>
 
 </mapper>

@@ -43,4 +43,11 @@ public interface ProductService {
      * @return
      */
     Result update(Product product);
+
+    /**
+     * 根据分类id查询商品
+     * @param tId
+     * @return
+     */
+    Result queryByTId(Integer tId);
 }

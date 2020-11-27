@@ -12,4 +12,8 @@ public interface InfoMapper {
 
 
     List<Info> queryAll();
+
+    int insert(Info info);
+
+    int delete(Integer iId);
 }

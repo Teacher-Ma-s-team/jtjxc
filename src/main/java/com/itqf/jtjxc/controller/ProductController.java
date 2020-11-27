@@ -48,6 +48,11 @@ public class ProductController {
         System.out.println(product);
         return productService.update(product);
     }
+
+    @GetMapping("queryByTId")
+    public Result queryByTId(Integer tId){
+        return productService.queryByTId(tId);
+    }
 }
 
 

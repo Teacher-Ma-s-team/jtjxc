@@ -78,4 +78,10 @@ public class ProductServiceImpl implements ProductService {
         }
         return Result.FAIL();
     }
+
+    @Override
+    public Result queryByTId(Integer tId) {
+        List<Product> products = productMapper.queryByTId(tId);
+        return Result.OK(products);
+    }
 }

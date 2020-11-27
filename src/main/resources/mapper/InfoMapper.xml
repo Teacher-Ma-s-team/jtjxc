@@ -20,4 +20,10 @@
         LEFT JOIN product ON info.p_id=product.p_id
         LEFT JOIN types ON info.t_id=types.t_id
     </select>
+    <insert id="insert" parameterType="Info">
+        insert into info values (null,#{tId},#{pId},#{iQuantity},#{iNote})
+    </insert>
+    <delete id="delete">
+        delete from info where i_id=#{iId}
+    </delete>
 </mapper>
